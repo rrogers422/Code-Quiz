@@ -1,4 +1,10 @@
-var questions = [
+var timer = document.querySelector("#timer");
+var startTime = document.querySelector("#startTime");
+var questionArea = document.querySelector("#question");
+var selectionArea = document.querySelector("#options");
+var rightWrong = document.querySelector("#right-wrong");
+
+var testQuestions = [
     {
         title: "NORMALLY used data types do not include?"
         choices: ["string", "booleans","alerts", "Number"],
