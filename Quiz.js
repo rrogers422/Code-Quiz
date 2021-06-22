@@ -29,10 +29,10 @@ var testQuestions = [
 
 var score = 0;
 var questionIndex = 0;
-var currentTime = document.querySelector("#currentTime");
-var startTimer = document.querySelector("#startTime");
-var questionArea = document.querySelector("#questionArea");
-var wrapper = document.querySelector("#wrapper");
+var currentTime = document.getElementById("currentTime");
+var startTimer = document.getElementById("startTimer");
+var questionArea = document.getElementById("questionArea");
+var wrapper = document.getElementById("wrapper");
 
 var timeLeft = 77;
 var interval = 0;
@@ -41,20 +41,20 @@ var ulCreate = document.createElement("ul");
 
 
 
-// Triggers timer on button and displays on screen
+//Starts timer on button and displays on screen
+
 startTimer.addEventListener("click", function() {
-    if (interval === 0) {
         interval = setInterval( function() {
             timeLeft--;
             currentTime.textContent = "Time: " + timeLeft;
 
             if (timeLeft <= 0) {
                 clearInterval(interval);
-                allDone();
                 currentTime.textContent = "Time's up!";
+                allDone();
+
             }
         }, 1000);
-    }
     render(questionIndex);
 });
 
@@ -81,11 +81,11 @@ function compare(event) {
 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-        if (element.textContent == questions[questionIndex].answer) {
+        if (element.textContent == testQuestions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Correct! The answer is:  " + testQuestions[questionIndex].answer; 
         } else {
-            // Will deduct -15 seconds off secondsLeft for wrong answers
+            // Will deduct -15 seconds for wrong
             timeLeft = timeLeft - penTime;
             createDiv.textContent = "Wrong! The correct answer is:  " + testQuestions[questionIndex].answer;
         }
