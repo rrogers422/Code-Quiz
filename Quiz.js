@@ -35,8 +35,24 @@ var questionArea = document.querySelector("#questionDiv");
 var wrapper = document.querySelector("#wrapper");
 
 var timeLeft = 77;
-var holdInterval = 0;
+var interval = 0;
 var penTime = 15;
 var ulCreate = document.createElement("ul");
 
+//starts timer on click and displays on the screen
+startTimer.addEventListener("click", function() {
+    if(interval === 0) {
+        interval = setInterval(function(){
+            timeLeft--;
+            currentTime.textContent = "Time: " + timeLeft;
+
+    if(timeLeft <= 0) {
+        clearInterval(interval);
+        allDone();
+        currentTime.textContent ="Time's Up!";
+    }
+        }, 1000);
+    }
+    render(questionIndex);
+});
 
