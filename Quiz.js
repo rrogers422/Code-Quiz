@@ -31,7 +31,7 @@ var score = 0;
 var questionIndex = 0;
 var currentTime = document.querySelector("#currentTime");
 var startTimer = document.querySelector("#startTimer");
-var questionArea = document.querySelector("#questionDiv");
+var questionArea = document.querySelector("#questionArea");
 var wrapper = document.querySelector("#wrapper");
 
 var timeLeft = 77;
@@ -56,3 +56,38 @@ startTimer.addEventListener("click", function() {
     render(questionIndex);
 });
 
+//render questions and answers
+function render(questionIndex) {
+    questionArea.innerHTML = "";
+    ulCreate.innerHTML = "";
+    for(var i = 0; i < testQuestions.length; i++) {
+        var userQuestion = testQuestions[questionIndex].title;
+        var userChoices = testQuestions[questionIndex].choices;
+        questionArea.textContent = userQuestion;
+    }
+    userChoices.forEach(function (newItem){
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionArea.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+        
+    })
+}
+function compare(event) {
+    var element = event.target;
+
+    if (element.matches("li")) {
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        if(element.textContent == testQuestions[questionArea].answer){
+            score++;
+            createDiv.textContent = "Corrct! The answer is: " + testQuestions[questionArea].answer;
+        } else {
+            //deducts -15 seconds off for wrong answers
+            timeLeft = timeLeft - penalty;
+            createDiv.textContent = "Wrong! The correct answer is:" + testQuestions[questionArea].answer;
+        }
+        
+    }
+}
