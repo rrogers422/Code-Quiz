@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Coding Quiz</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="Assets/style.css">
+
+    <!--title-->
+    <title>Code Quiz</title>
 </head>
+
 <body>
-    <header>
-    <a href ="highscore.html">View Highscores</a>
-    </header>
-<main>
+    <!--wrapper-->
+    <div id="wrapper">
+        <!-- timer -->
+        <div id="currentTime"></div>
+        <!-- quiz-content-->
+        <div id="questionArea">
+            <h1>Code Quiz</h1>
+            <p>Answer these code-related questions within the time frame. Be aware that incorrect
+                answers will penalize your time by 15 seconds!</p>
+            <ul id="choicesUl"></ul>
+            <!--Buttons-->
+            <button id="startTimer">Start Quiz</button>
+        </div>
 
-    <h1 id= "coding-header"> Coding Quiz!</h1>
-    <button id="startTime"> Start Quiz</button>
-    <div id="container">
-        <div id="list">
-            <div id="timer">
-            <div id="questionsdiv">
-            <div id="right-wrong"></div>
-            <div id ="options">
-                <ul id="choicesUl"></ul>
-               </div>
-    <p>Answer the following code-related quiz questions within the time limit. Incorrect answers will penelize the time and deduct 15 seconds.
-        Ready, Set, Go!
-    </p>
- 
+    </div>
 
 
-    <script src="quiz.js"></script>
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
