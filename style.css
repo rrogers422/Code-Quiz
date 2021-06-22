@@ -57,7 +57,7 @@
   }
   
   #Submit {
-    background-color: green;
+    background-color: rgb(159, 62, 172);
     margin-left: 33%;
     padding: 15px 32px;
     font-size: 20px;
@@ -78,7 +78,7 @@
   }
   
   li {
-    background-color: blue;
+    background-color: rgb(92, 182, 204);
     margin-top: 10px;
     padding: 5px 15px;
     width: 80%;
